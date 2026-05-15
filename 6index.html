@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Water Reminder</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#0f172a;
+    font-family:Arial;
+}
+
+.container{
+    width:350px;
+    background:#1e293b;
+    padding:25px;
+    border-radius:18px;
+    text-align:center;
+    color:white;
+}
+
+h1{
+    font-size:60px;
+    margin:20px 0;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:12px;
+    border:none;
+    border-radius:10px;
+    background:#22c55e;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.progress{
+    width:100%;
+    height:20px;
+    background:#334155;
+    border-radius:20px;
+    margin-top:20px;
+    overflow:hidden;
+}
+
+.bar{
+    height:100%;
+    width:0%;
+    background:#38bdf8;
+    transition:0.3s;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Water Reminder</h2>
+
+    <h1 id="count">0</h1>
+
+    <p>Glass of water</p>
+
+    <button onclick="drinkWater()">
+        I Drank Water
+    </button>
+
+    <div class="progress">
+        <div class="bar" id="bar"></div>
+    </div>
+
+</div>
+
+<script>
+
+let count = 0;
+
+function drinkWater(){
+
+    count++;
+
+    document.getElementById("count").innerHTML =
+    count;
+
+    let progress = count * 12.5;
+
+    document.getElementById("bar").style.width =
+    progress + "%";
+
+    if(count == 8){
+        alert("Daily water goal completed!");
+    }
+}
+
+</script>
+
+</body>
+</html>
